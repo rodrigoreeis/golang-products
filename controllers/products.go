@@ -7,15 +7,15 @@ import (
 	"strconv"
 )
 
-var templates = template.Must(template.ParseGlob("templates/*.html"))
+var views = template.Must(template.ParseGlob("views/*.html"))
 
 func HandleHome(w http.ResponseWriter, r *http.Request) {
 	products := models.GetProducts()
-	templates.ExecuteTemplate(w, "Index", products)
+	views.ExecuteTemplate(w, "Index", products)
 }
 
 func HandleAddProduct(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "AddProduct", nil)
+	views.ExecuteTemplate(w, "AddProduct", nil)
 }
 
 func HandleInsertProduct(w http.ResponseWriter, r *http.Request) {
